@@ -9,7 +9,7 @@
     - 2 worker nodes
 
 ### For set up all of the stuff I am using my tutorial
-<https://github.com/krzysztofbrzozowski/k8s_playground/blob/master/custom_cluster_config_0/README.md>
+[how_to_install_k8s](https://github.com/krzysztofbrzozowski/k8s_playground/blob/master/custom_cluster_config_0/README.md)
 
 ### Installed SW:
 <table>

@@ -5,7 +5,7 @@ helm repo add prometheus-community https://prometheus-community.github.io/helm-c
 helm repo update
 ```
 
-[!TIP]
+> [!TIP]
 > Looks like sometimes in my master node I am not able to update 
 > ```
 > ...Unable to get an update from the "prometheus-community" chart repository (https://prometheus-community.github.io/helm-charts):
@@ -68,9 +68,11 @@ prometheus-stack-prometheus-node-exporter-ddmk9          1/1     Running   0    
 kubectl port-forward -n prometheus-stack svc/prometheus-stack-grafana 3000:80
 ```
 
-[!error]
+> [!error]
 > I am not able to get grafana from localnetwork
-> ```curl: (7) Failed to connect to 192.168.1.201 port 3000 after 4 ms: Couldn't connect to server
+> ```
+> curl: (7) Failed to connect to 192.168.1.201 port 3000 after 4 ms: Couldn't connect to server
+> ```
 
-[!TIP]
+> [!TIP]
 > Maybe add Ingress service?

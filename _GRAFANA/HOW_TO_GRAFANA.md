@@ -78,21 +78,4 @@ kubectl port-forward -n prometheus-stack svc/prometheus-stack-grafana 3000:80
 > Maybe add Ingress service?
 
 
-Tried to add ingress-nginx.yaml but have some issues
-```
-Name:             ingress-service
-Labels:           <none>
-Namespace:        default
-Address:
-Ingress Class:    nginx
-Default backend:  <default>
-Rules:
-  Host        Path  Backends
-  ----        ----  --------
-  *
-              /?(.*)   prometheus-stack-grafana:3000 (<error: services "prometheus-stack-grafana" not found>)
-Annotations:  nginx.ingress.kubernetes.io/rewrite-target: /$1
-              nginx.ingress.kubernetes.io/use-regex: true
-Events:       <none>
-```
--[] Why ingress is not cathing that service?
+So next chapter of installing ingress is in _INGRESS dir

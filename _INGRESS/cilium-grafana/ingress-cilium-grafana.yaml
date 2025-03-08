@@ -1,0 +1,17 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ingress-cilium-grafana
+  namespace: prometheus-stack
+spec:
+  ingressClassName: cilium
+  rules:
+  - http:
+      paths:
+      - backend:
+          service:
+            name: prometheus-stack-grafana
+            port:
+              number: 80
+        path: /
+        pathType: Prefix  

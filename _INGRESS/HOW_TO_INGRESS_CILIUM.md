@@ -99,5 +99,85 @@ curl http://192.168.1.101/
 > Access denied
 > ```
 
-- [] need to fix that error
+- [x] need to fix that error
+    It was issue with appllied network policy -> 
+    ```yaml
+    apiVersion: "cilium.io/v2"
+    kind: CiliumClusterwideNetworkPolicy
+    metadata:
+      name: "allow-cidr"
+    spec:
+      description: "Allow all the traffic originating from a specific CIDR"
+      endpointSelector:
+        matchExpressions:
+        - key: reserved:ingress
+          operator: Exists
+      ingress:
+      - fromCIDRSet:
+        # Please update the CIDR to match your environment
+        - cidr: 192.168.1.201/32
+    ```
+    After removing it is possible to access Load Balancer Address
+
+```bash
+curl http://192.168.1.101/
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Simple Bookstore App</title>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+...
+```
+[!info]
+> Probably it will be as well important at some point
+> https://docs.cilium.io/en/latest/network/servicemesh/default-deny-ingress-policy/
+
+
+## Grafana access
+
+Created simle config for grafana access
+```yaml
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ingress-cilium-grafana
+  namespace: prometheus-stack
+spec:
+  ingressClassName: cilium
+  rules:
+  - http:
+      paths:
+      - backend:
+          service:
+            name: prometheus-stack-grafana
+            port:
+              number: 80
+        path: /
+        pathType: Prefix
+```
+
+[!error]
+> upstream connect error or disconnect/reset before headers. reset reason: connection timeout
+
+
+helm show values prometheus-community/kube-prometheus-stack > custom-values.yaml
+
+[!info]
+> Can be applied
+> ```
+> helm -n monitoring install -f ./custom-values.yaml pg prometheus-com/kube-prometheus-stack
+> ```
+
+
+After 
+```bash
+k -n kube-system rollout restart deployment/cilium-operator
+k -n kube-system rollout restart ds/cilium
+```
+
+Grafana started working, evena fter cluster reboot but basic app is not working anymore
+- [] Paths conflict?
+
 

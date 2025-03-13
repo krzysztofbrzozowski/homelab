@@ -178,6 +178,7 @@ k -n kube-system rollout restart ds/cilium
 ```
 
 Grafana started working, evena fter cluster reboot but basic app is not working anymore
+
 - [] Paths conflict?
 
 

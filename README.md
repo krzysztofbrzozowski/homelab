@@ -11,6 +11,14 @@
 ### For set up all of the stuff I am using my tutorial
 [how_to_install_k8s](https://github.com/krzysztofbrzozowski/k8s_playground/blob/master/custom_cluster_config_0/README.md)
 
+### IPs
+Currently only one LoadBalancer is working with address
+```
+192.168.1.102
+```
+It is the entry point to Grafana
+
+
 ### Installed SW:
 <table>
     <tr>

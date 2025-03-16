@@ -182,6 +182,44 @@ NAMESPACE       NAME                            REVISION                SUSPENDE
 flux-system     gitrepository/flux-system       master@sha1:affeffe2    False           True    stored artifact for revision 'master@sha1:affeffe2'
 ```
 
+Looks like with one node (one master + one node) in Proxmox boostsrap for FluCD is workin
+```
+user@k8smaster:~$ flux bootstrap github \
+  --token-auth \
+  --owner=krzysztofbrzozowski \
+  --repository=homelab_gitops \
+  --branch=master \
+  --path=clusters/homelab_gitops \
+  --personal
+► connecting to github.com
+► cloning branch "master" from Git repository "https://github.com/krzysztofbrzozowski/homelab_gitops.git"
+✔ cloned repository
+► generating component manifests
+✔ generated component manifests
+✔ component manifests are up to date
+► installing components in "flux-system" namespace
+✔ installed components
+✔ reconciled components
+► determining if source secret "flux-system/flux-system" exists
+► generating source secret
+► applying source secret "flux-system/flux-system"
+✔ reconciled source secret
+► generating sync manifests
+✔ generated sync manifests
+✔ sync manifests are up to date
+► applying sync manifests
+✔ reconciled sync configuration
+◎ waiting for GitRepository "flux-system/flux-system" to be reconciled
+✔ GitRepository reconciled successfully
+◎ waiting for Kustomization "flux-system/flux-system" to be reconciled
+✔ Kustomization reconciled successfully
+► confirming components are healthy
+✔ helm-controller: deployment ready
+✔ kustomize-controller: deployment ready
+✔ notification-controller: deployment ready
+✔ source-controller: deployment ready
+✔ all components are healthy
+```
 
 ## Uninstall
 ```bash

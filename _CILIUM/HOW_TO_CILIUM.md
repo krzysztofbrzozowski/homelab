@@ -108,3 +108,7 @@ E0316 15:15:44.683214    3413 v2.go:167] "Unhandled Error" err="next reader: rea
 E0316 15:15:44.683274    3413 v2.go:150] "Unhandled Error" err="next reader: read tcp 192.168.1.210:57302->192.168.1.210:6443: use of closed network connection" logger="UnhandledError"
 timeout reached waiting for lookup for localhost from pod cilium-test-1/client3-795488bf5-fmwdb to server on pod cilium-test-1/echo-same-node-6c98489c8d-xvwx7 to succeed (last error: command failed (pod=cilium-test-1/client3-795488bf5-fmwdb, container=): context deadline exceeded)
 ```
+
+Looks like when initialized one node at leas tests have started working however sometimes it looks like it is showing error as above, sometimes tests are starting -> see tests.log
+
+Anyhow looks like system is not stable in current config, need to find out why it is happening, maybe because missing config in proxmox?

@@ -27,7 +27,7 @@ flux bootstrap github \
   --personal
 ```
 
-[!error]
+> [!error]
 > Looks it is hanging in some step
 > ```
 > user@k8smaster:~$ flux bootstrap github   --token-auth   --owner=krzysztofbrzozowski   --repository=homelab_gitops   --branch=master   --path=homelab_gitops   --personal   --private=false
@@ -220,7 +220,7 @@ user@k8smaster:~$ flux bootstrap github \
 ✔ source-controller: deployment ready
 ✔ all components are healthy
 ```
-[!IMPORTANT]
+> [!IMPORTANT]
 > Looks like all of the issues which had with reconciliation happend
 > because was running k8s master and node as VMs in Proxmox
 > During runing it as baremetal no issues at all...

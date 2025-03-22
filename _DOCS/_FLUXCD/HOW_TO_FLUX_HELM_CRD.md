@@ -58,3 +58,16 @@ One can run test if everything is building before push (now doing it from separa
 ```
 kustomize build fluxcd/infrastructure/homelab
 ```
+
+can download it fast
+```
+flux reconcile kustomization infrastructure --with-source
+```
+
+See helmrepos
+```
+kubectl get helmrepository -n kube-system
+```
+
+> [!TIP]
+> If using OCI repository, READY and STATUS will not bee visible

@@ -90,7 +90,27 @@ spec:
 > [!TIP]
 > If using OCI repository, READY and STATUS will not be visible
 
-## Instruct SourceController to grab HelmChart - Helm chart custom resource
+## Instruct SourceController to grab HelmChart - Helm chart custom resource (2)
+HelmChart example
+```yaml
+# flux HelmChart to grab the nginx ingress controller chart
+#  this example is not really used - we are creating this from the HelmRelease crd
+apiVersion: source.toolkit.fluxcd.io/v1beta2
+kind: HelmChart
+metadata:
+  name: nginx
+  namespace: nginx
+spec:
+  chart: nginx-ingress
+  version: 1.2.x
+  interval: 5h
+  sourceRef:
+    kind: HelmRepository
+    name: nginx
+```
+
+Below example is actual HelmRelease
+In general probably there is no need to separate it per file (HelmRepoCRD and HelmChartCRD), it can be done in one file
 ```yaml
 apiVersion: helm.toolkit.fluxcd.io/v2
 kind: HelmRelease
@@ -100,7 +120,7 @@ metadata:
 
 spec:
   releaseName: cilium
-  interval: 15m
+  interval: 15m # Check for drifting
   chart:
     spec:
       chart: cilium # Specify the chart you want to grab
@@ -116,7 +136,6 @@ spec:
       name: cilium-values
 ```
 
-In general probably there is no need to separate it per file (HelmRepoCRD and HelmChartCRD), it can be done in one file
 
 See helmcharts
 ```
@@ -125,4 +144,18 @@ kubectl get helmchart -n kube-system
 user@k8smaster:~$ kubectl get helmchart -n kube-system
 NAME                 CHART    VERSION   SOURCE KIND      SOURCE NAME   AGE   READY   STATUS
 kube-system-cilium   cilium   1.17.x    HelmRepository   cilium        37s   True    pulled 'cilium' chart with version '1.17.2'
+```
+
+## Helm Release CRD (3)
+Probably besides installing the release, applying the values it runs helm tests
+(HelmRelease is done in point 2)
+
+Check for helmrelease
+```
+kubectl get helmrelease -n kube-system
+```
+
+Check all services and objects in kube-system
+```
+kubectl get all -n kube-system
 ```

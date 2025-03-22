@@ -160,6 +160,8 @@ k8smaster   NotReady   control-plane   15m   v1.32.3
 k8snode0    NotReady   <none>          39s   v1.32.3
 ```
 
+> [!TIP]
+> Probable here you can start running FluxCD
 
 ### Install Helm
 ```

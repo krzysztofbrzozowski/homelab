@@ -193,3 +193,5 @@ user@k8smaster:~$ kubectl -n kube-system exec ds/cilium -- cilium-dbg status | g
 Defaulted container "cilium-agent" out of: cilium-agent, config (init), mount-cgroup (init), apply-sysctl-overwrites (init), mount-bpf-fs (init), clean-cilium-state (init), install-cni-binaries (init)
 KubeProxyReplacement:    True   [enp0s31f6       192.168.1.51 2a02:a31d:80ed:450::3cf fd6d:4757:edfd::3cf fd6d:4757:edfd:0:ba85:84ff:feb0:5ab8 2a02:a31d:80ed:450:ba85:84ff:feb0:5ab8 fe80::ba85:84ff:feb0:5ab8 (Direct Routing)]
 ```
+
+Now go to fluxCD and reinitalize this repo

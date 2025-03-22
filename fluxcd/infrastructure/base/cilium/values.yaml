@@ -22,10 +22,10 @@
 #       - SYS_ADMIN
 #       - SYS_RESOURCE
 
-cgroup:
-  autoMount:
-    enabled: false
-  hostRoot: /sys/fs/cgroup
+# cgroup:
+#   autoMount:
+#     enabled: false
+#   hostRoot: /sys/fs/cgroup
 
 k8sServiceHost: 192.168.1.50
 k8sServicePort: 6443

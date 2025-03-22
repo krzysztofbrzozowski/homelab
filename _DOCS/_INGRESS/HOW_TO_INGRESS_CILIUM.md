@@ -182,3 +182,6 @@ Grafana started working, evena fter cluster reboot but basic app is not working 
 - [] Paths conflict?
 
 
+
+
+helm upgrade cilium cilium/cilium --version 1.17.2     --namespace kube-system     --set kubeProxyReplacement=true     --set k8sServiceHost=192.168.1.50     --set k8sServicePort=6443

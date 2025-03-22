@@ -23,7 +23,7 @@ flux bootstrap github \
   --owner=krzysztofbrzozowski \
   --repository=homelab_gitops \
   --branch=master \
-  --path=clusters/homelab_gitops \
+  --path=clusters/homelab \
   --personal
 ```
 

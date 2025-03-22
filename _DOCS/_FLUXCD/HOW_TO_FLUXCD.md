@@ -220,6 +220,15 @@ user@k8smaster:~$ flux bootstrap github \
 ✔ source-controller: deployment ready
 ✔ all components are healthy
 ```
+[!IMPORTANT]
+> Looks like all of the issues which had with reconciliation happend
+> because was running k8s master and node as VMs in Proxmox
+> During runing it as baremetal no issues at all...
+
+Reconcile fast everything
+```
+flux reconcile kustomization flux-system --with-source
+```
 
 ## Uninstall
 ```bash

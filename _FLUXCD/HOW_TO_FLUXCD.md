@@ -21,7 +21,7 @@ next
 flux bootstrap github \
   --token-auth \
   --owner=krzysztofbrzozowski \
-  --repository=homelab_gitops \
+  --repository=homelab \
   --branch=master \
   --path=clusters/homelab \
   --personal

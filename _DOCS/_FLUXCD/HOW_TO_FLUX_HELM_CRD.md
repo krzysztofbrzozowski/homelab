@@ -53,6 +53,7 @@ it is the pod we see is running here
 helm-controller-b6767d66-6zd5j             1/1     Running   0          30m
 ```
 
+## Subscribing HelmRepository (1)
 Added infrastructure folder
 One can run test if everything is building before push (now doing it from separate system so no able to do it)
 ```
@@ -69,5 +70,46 @@ See helmrepos
 kubectl get helmrepository -n kube-system
 ```
 
+example subscription configuration
+```yaml
+# Flux Helm repository for installing stuff from Cilium (e.g. Cilium ingress controller)
+apiVersion: source.toolkit.fluxcd.io/v1
+kind: HelmRepository
+metadata:
+  name: cilium
+  namespace: kube-system
+spec:
+  interval: 1h
+  url: https://helm.cilium.io/
+```
+
 > [!TIP]
-> If using OCI repository, READY and STATUS will not bee visible
+> If using OCI repository, READY and STATUS will not be visible
+
+## Instruct SourceController to grab HelmChart - Helm chart custom resource
+```yaml
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: cilium
+  namespace: kube-system
+
+spec:
+  releaseName: cilium
+  interval: 15m
+  chart:
+    spec:
+      chart: cilium # Specify the chart you want to grab
+      version: 1.17.x
+      interval: 6h # Check every 6h new release within 1.17.x is there
+      sourceRef:            
+        kind: HelmRepository # Reference the HelmRepository according to HelmRepository CRD you want to get chart from
+        name: cilium
+        namespace: kube-system
+
+  valuesFrom:
+    - kind: ConfigMap
+      name: cilium-values
+```
+
+In general probably there is no need to separate it per file (HelmRepoCRD and HelmChartCRD), it can be done in one file

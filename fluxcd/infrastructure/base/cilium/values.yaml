@@ -1,6 +1,3 @@
-# ipam:
-#   mode: kubernetes
-
 kubeProxyReplacement: true
 
 # securityContext:
@@ -46,9 +43,9 @@ l2announcements:
 # Calculated based on 30 services
 # https://docs.cilium.io/en/latest/network/l2-announcements/#sizing-client-rate-limit
 
-k8sClientRateLimit:
-  qps: 15
-  burst: 20
+# k8sClientRateLimit:
+#   qps: 15
+#   burst: 20
 
 ingressController:
   enabled: true

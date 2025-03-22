@@ -68,6 +68,10 @@ flux reconcile kustomization infrastructure --with-source
 See helmrepos
 ```
 kubectl get helmrepository -n kube-system
+
+user@k8smaster:~$ kubectl get helmrepository -n kube-system
+NAME     URL                       AGE   READY   STATUS
+cilium   https://helm.cilium.io/   24m   True    stored artifact: revision 'sha256:b70419cb975ed089b7d3f7647a34034b7f203fe1901b9b47607a0a6af48af7bd'
 ```
 
 example subscription configuration
@@ -113,3 +117,12 @@ spec:
 ```
 
 In general probably there is no need to separate it per file (HelmRepoCRD and HelmChartCRD), it can be done in one file
+
+See helmcharts
+```
+kubectl get helmchart -n kube-system
+
+user@k8smaster:~$ kubectl get helmchart -n kube-system
+NAME                 CHART    VERSION   SOURCE KIND      SOURCE NAME   AGE   READY   STATUS
+kube-system-cilium   cilium   1.17.x    HelmRepository   cilium        37s   True    pulled 'cilium' chart with version '1.17.2'
+```

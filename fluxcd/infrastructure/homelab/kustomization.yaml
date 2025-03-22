@@ -1,0 +1,3 @@
+# Patching resources based on a base but comming from homelab (current folder)
+resources:
+  - ../base

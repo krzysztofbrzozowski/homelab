@@ -15,8 +15,8 @@ is the helm operator which will be used to install helm charts
 ![flux_operator](https://fluxcd.io/img/helm-controller.png)
 
 Generally the most important thing is
-1. Add your repository (HelmRepositoryCRD)
-2. Supbscribe to the HelmChart (HelmChartCRD)
+1. Add/subscribe your repository (HelmRepositoryCRD)
+2. Download the HelmChart (HelmChartCRD)
 3. Install the release with scpecific verison (HelmReleaseCRD)
 
 From now on NOT use helm command except
@@ -24,3 +24,37 @@ From now on NOT use helm command except
 - helm --debug --dryrun install-name ./mychart
 Nice explanation about helm templating -> https://helm.sh/docs/chart_template_guide/getting_started/
 
+Basically in the gotk-components.yaml
+```yaml
+...
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app.kubernetes.io/component: helm-controller
+    app.kubernetes.io/instance: flux-system
+    app.kubernetes.io/part-of: flux
+    app.kubernetes.io/version: v2.5.1
+    control-plane: controller
+  name: helm-controller
+  namespace: flux-system
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: helm-controller
+  template:
+...
+```
+
+it is the pod we see is running here
+```
+helm-controller-b6767d66-6zd5j             1/1     Running   0          30m
+```
+
+Added infrastructure folder
+One can run test if everything is building before push (now doing it from separate system so no able to do it)
+```
+kustomize build fluxcd/infrastructure/homelab
+```

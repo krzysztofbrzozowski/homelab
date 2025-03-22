@@ -6,7 +6,7 @@ metadata:
   name: infrastructure
   namespace: flux-system
 spec:
-  interval: 10m0s
+  interval: 5m0s
   path: ./fluxcd/infrastructure/homelab
   prune: true
   sourceRef:

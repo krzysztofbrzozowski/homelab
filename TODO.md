@@ -6,4 +6,5 @@
 - [x] Install helmchart for cilium
 - [] Install helmchart for Grafana
 - [] Configure ingress and loadbalancer for grafana 
-- Configure sheared LoadBalancer for future purposes, dedicated seems to be overkil
+- [] Configure sheared LoadBalancer for future purposes, dedicated seems to be overkil
+- [] Own HelmChart for outside world connectivity metrics and display it in Grafana

@@ -1,3 +1,5 @@
 # Patching resources based on a base but comming from homelab (current folder)
 resources:
   - ../base
+  - ingress-l2policy.yaml
+  - ingress-pool.yaml

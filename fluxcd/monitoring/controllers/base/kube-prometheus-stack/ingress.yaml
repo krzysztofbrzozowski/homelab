@@ -14,5 +14,5 @@ spec:
             port:
               number: 80
         # It has to be / since there is no rewrite-target so e.g. <ingress_ip>/monitoring will not work
-        path: /.*
+        path: /
         pathType: Prefix

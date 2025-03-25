@@ -13,5 +13,6 @@ spec:
             name: kube-prometheus-stack-grafana
             port:
               number: 80
-        path: /monitoring(/|$)(.*)
+        # It has to be / since there is no rewrite-target so e.g. <ingress_ip>/monitoring will not work
+        path: /.*
         pathType: Prefix

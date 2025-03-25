@@ -13,5 +13,5 @@ spec:
             name: kube-prometheus-stack-grafana
             port:
               number: 80
-        path: /
+        path: /monitoring(/|$)(.*)
         pathType: Prefix

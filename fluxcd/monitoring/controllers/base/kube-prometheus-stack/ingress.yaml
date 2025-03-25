@@ -2,7 +2,7 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: ingress-kube-prometheus-stack
-  namespace: monitoring
+  namespace: kube-system
 spec:
   ingressClassName: cilium
   rules:

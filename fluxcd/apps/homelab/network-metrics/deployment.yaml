@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: network-metrics
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      component: network-metrics
+  template:
+    metadata:
+      labels:
+        component: network-metrics
+    spec:
+      containers:
+      - name: network-metrics
+        image: ghcr.io/krzysztofbrzozowski/network_metrics:latest
+        securityContext:
+            allowPrivilegeEscalation: false
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "1"

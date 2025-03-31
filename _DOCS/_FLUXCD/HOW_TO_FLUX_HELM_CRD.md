@@ -159,3 +159,29 @@ Check all services and objects in kube-system
 ```
 kubectl get all -n kube-system
 ```
+
+Debug the error
+```
+flux stats
+
+RECONCILERS             RUNNING FAILING SUSPENDED       STORAGE
+GitRepository           1       0       0               157.2 KiB
+OCIRepository           0       0       0               -
+HelmRepository          0       0       0               -
+HelmChart               0       0       0               -
+Bucket                  0       0       0               -
+Kustomization           4       1       0               -
+HelmRelease             0       0       0               -
+Alert                   0       0       0               -
+Provider                0       0       0               -
+Receiver                0       0       0               -
+ImageUpdateAutomation   0       0       0               -
+ImagePolicy             0       0       0               -
+ImageRepository         0       0       0               -
+```
+
+```
+flux events
+41s                     Warning BuildFailed                     Kustomization/apps              kustomize build failed: accumulating resources: accumulation err='accumulating resources from '../base': read /tmp/kustomization-25720710/fluxcd/apps/base: is a directory': recursed accumulation of path '/tmp/kustomization-25720710/fluxcd/apps/base': accumulating resources: accumulation err='accumulating resources from 'namespace.yaml': open /tmp/kustomization-25720710/fluxcd/apps/base/namespace.yaml: no such file or directory': must build at directory: not a valid directory: evalsymlink failure on '/tmp/kustomization-25720710/fluxcd/apps/base/namespace.yaml' : lstat /tmp/kustomization-25720710/fluxcd/apps/base/namespace.yaml: no such file or directory
+32s (x7 over 6m34s)     Normal  GitOperationSucceeded           GitRepository/flux-system       no changes since last reconcilation: observed revision 'master@sha1:18f3d57a5f9f1bdc07ec9f0c3d79205864840ad5'     
+```

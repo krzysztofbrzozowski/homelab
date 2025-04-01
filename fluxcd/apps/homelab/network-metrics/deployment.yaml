@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: network-metrics
-        image: ghcr.io/krzysztofbrzozowski/network_metrics:latest
+        image: ghcr.io/krzysztofbrzozowski/network-metrics:latest
         # Since I am not running Dockerfile with entrypoint, providing here the entrycommand
         # command: ["python", "main.py"]
         securityContext:

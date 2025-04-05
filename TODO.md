@@ -6,6 +6,7 @@
 - [x] Install helmchart for cilium
 - [x] Install helmchart for Grafana
 - [x] Configure ingress and loadbalancer for grafana 
-- [x] Configure sheared LoadBalancer for future purposes, dedicated seems to be overkil
+- [x] Configure sheared LoadBalancer for future purposes, dedicated seems to be overkill
+- [] Configure postgresql
 - [] Own HelmChart for outside world connectivity metrics and display it in Grafana
-- [] Unable to run docker since in Dockerfile there is no direct copy of the files, thats why it is raising error no /src/main.py found
+- [x] Unable to run docker since in Dockerfile there is no direct copy of the files, thats why it is raising error no /src/main.py found

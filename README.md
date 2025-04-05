@@ -1,25 +1,26 @@
 # Homelab notes
 ## Hardware
 - Currently running homelab only as accessible from local network
-- Running on Dell 7050 (i5, 1TB NVMe, 16GB RAM)
+- Running on 2 x Dell 7050 (i5, 256GB NVMe, 16GB RAM)
 
-## Software
-- Proxmox with 3 VMs
-    - master node
-    - 2 worker nodes
 
 ### For set up all of the stuff I am using my tutorial
-[how_to_install_k8s](https://github.com/krzysztofbrzozowski/k8s_playground/blob/master/custom_cluster_config_0/README.md)
+[how_to_initialize_k8s_without_kube_proxy](https://github.com/krzysztofbrzozowski/homelab/blob/master/_DOCS/_INITIALIZE_K8S_CLUSTER/HOW_TO_INITIALIZE_CLUSTER.md)
 
 ### IPs
-Proxmox PVE
+Master
 ```
-https://192.168.1.247:8006
+192.168.1.50
+```
+
+Node 0
+```
+192.168.1.51
 ```
 
 Currently only one LoadBalancer is working with address
 ```
-192.168.1.102
+192.168.1.50
 ```
 It is the entry point to Grafana
 

@@ -185,3 +185,8 @@ flux events
 41s                     Warning BuildFailed                     Kustomization/apps              kustomize build failed: accumulating resources: accumulation err='accumulating resources from '../base': read /tmp/kustomization-25720710/fluxcd/apps/base: is a directory': recursed accumulation of path '/tmp/kustomization-25720710/fluxcd/apps/base': accumulating resources: accumulation err='accumulating resources from 'namespace.yaml': open /tmp/kustomization-25720710/fluxcd/apps/base/namespace.yaml: no such file or directory': must build at directory: not a valid directory: evalsymlink failure on '/tmp/kustomization-25720710/fluxcd/apps/base/namespace.yaml' : lstat /tmp/kustomization-25720710/fluxcd/apps/base/namespace.yaml: no such file or directory
 32s (x7 over 6m34s)     Normal  GitOperationSucceeded           GitRepository/flux-system       no changes since last reconcilation: observed revision 'master@sha1:18f3d57a5f9f1bdc07ec9f0c3d79205864840ad5'     
 ```
+
+Added own deployment - no logs
+```
+ stream closed EOF for monitoring/network-metrics-6c57bdbcfd-7lm4v (network-metrics)
+```

@@ -33,4 +33,19 @@ It is the entry point to Grafana
         <td><a href="https://cilium.io/">Cilium</a></td>
         <td>CNI of choice, eBPF-based Networking, Observability, Security</td>
     </tr>
+    <tr>
+        <td><img width="32" src="https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/svg/flux-cd.svg"></td>
+        <td><a href="https://fluxcd.io/">Flux CD</a></td>
+        <td>GitOps solution</td>
+    </tr>
+    <tr>
+        <td><img width="32" src="https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/svg/grafana.svg"></td>
+        <td><a href="https://grafana.com/">Grafana</a></td>
+        <td>The open observability platform.</td>
+    </tr>
+    <tr>
+        <td><img width="32" src="https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/svg/prometheus.svg"></td>
+        <td><a href="https://prometheus.io/">Prometheus</a></td>
+        <td>An open-source monitoring system</td>
+    </tr>
 </table>

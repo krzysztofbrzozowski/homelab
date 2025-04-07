@@ -6,9 +6,25 @@ spec:
   description: Postgres cluster for network-metrics
   imageName: quay.io/enterprisedb/postgresql:17.4
 
+  monitoring:
+    enablePodMonitor: true
+
+
   bootstrap:
     initdb:
       database: networkmetricsdb
       owner: networkmetricsdb
       secret:
         name: network-metrics-db-secret
+
+  storage:
+    storageClass: standard
+    size: 1Gi
+
+  resources:
+    requests:
+      memory: "512Mi"
+      cpu: "1"
+    limits:
+      memory: "10Gi"
+      cpu: "2"

@@ -2,7 +2,7 @@ apiVersion: postgresql.cnpg.io/v1
 kind: Cluster
 metadata:
   name: network-metrics-db
-  namespace: network-metrics
+  namespace: database
 spec:
   description: Postgres cluster for network-metrics
   imageName: quay.io/enterprisedb/postgresql:17.4

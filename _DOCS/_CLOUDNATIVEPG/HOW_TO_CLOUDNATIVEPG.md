@@ -79,3 +79,8 @@ k cnpg logs cluster cluster-example -n database
 
 it empty
 ```
+
+Current error:
+```
+Defaulted container "initdb" out of: initdb, bootstrap-controller (init)
+```

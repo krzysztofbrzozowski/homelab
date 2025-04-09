@@ -4,5 +4,5 @@ namespace: network-metrics
 resources:
   - namespace.yaml
   # - secrets.yaml
-  # - database.yaml
+  - database.yaml
   # - scheduled-backup.yaml

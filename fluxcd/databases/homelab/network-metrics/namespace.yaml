@@ -1,6 +1,7 @@
 apiVersion: v1
 kind: Namespace
 metadata:
+  # Move to e.g. database namespace?
   name: network-metrics
   labels:
     app.kubernetes.io/component: monitoring

@@ -2,6 +2,7 @@ apiVersion: postgresql.cnpg.io/v1
 kind: Cluster
 metadata:
   name: network-metrics-db
+  namespace: network-metrics
 spec:
   description: Postgres cluster for network-metrics
   imageName: quay.io/enterprisedb/postgresql:17.4
@@ -9,13 +10,12 @@ spec:
   monitoring:
     enablePodMonitor: true
 
-
   bootstrap:
     initdb:
       database: networkmetricsdb
       owner: networkmetricsdb
-      secret:
-        name: network-metrics-db-secret
+      # secret:
+      #   name: network-metrics-db-secret
 
   storage:
     storageClass: standard

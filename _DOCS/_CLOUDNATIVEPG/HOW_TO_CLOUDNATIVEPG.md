@@ -42,3 +42,40 @@ user@k8smaster:~$ kubectl logs -n cnpg-system \
   deployment/cnpg-controller-manager --all-containers=true
 error: error from server (NotFound): deployments.apps "cnpg-controller-manager" not found in namespace "cnpg-system"
 ```
+
+Here trying some example
+```
+k cnpg status cluster-example -n database
+
+user@k8smaster:~$ k cnpg status cluster-example -n database
+Cluster Summary
+Primary server is initializing
+Name               database/cluster-example
+PostgreSQL Image:  ghcr.io/cloudnative-pg/postgresql:17.4
+Primary instance:   (switching to cluster-example-1)
+Status:            Setting up primary Creating primary instance cluster-example-1
+Instances:         3
+Ready instances:   0
+Size:              container not found
+
+Continuous Backup status
+Not configured
+
+Physical backups
+Primary instance not found
+
+Streaming Replication status
+Primary instance not found
+
+Instances status
+Name  Current LSN  Replication role  Status  QoS  Manager Version  Node
+----  -----------  ----------------  ------  ---  ---------------  ----
+```
+
+
+Trying to get some logs
+```
+k cnpg logs cluster cluster-example -n database
+
+it empty
+```

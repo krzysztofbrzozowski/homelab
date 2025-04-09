@@ -17,4 +17,3 @@ Now on you can use cnpg as
 k cnpg ...
 ```
 
-Basic 

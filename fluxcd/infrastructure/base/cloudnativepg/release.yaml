@@ -6,7 +6,7 @@ metadata:
   namespace: cnpg-system
 
 spec:
-  releaseName: cnpg
+  # releaseName: cnpg
   interval: 15m
   chart:
     spec:

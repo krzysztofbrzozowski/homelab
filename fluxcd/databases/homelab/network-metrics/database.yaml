@@ -38,9 +38,9 @@ spec:
     size: 1Gi
 
   resources:
-  limits:
-    cpu: "1"
-    memory: "3Gi"
-  requests:
-    cpu: "1"
-    memory: "3Gi"
+    limits:
+      cpu: "1"
+      memory: "3Gi"
+    requests:
+      cpu: "1"
+      memory: "3Gi"

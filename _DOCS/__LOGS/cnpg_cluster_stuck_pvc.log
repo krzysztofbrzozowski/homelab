@@ -112,3 +112,28 @@ Events:
   ----     ------            ----               ----               -------
   Warning  FailedScheduling  50m                default-scheduler  0/2 nodes are available: pod has unbound immediate PersistentVolumeClaims. preemption: 0/2 nodes are available: 2 Preemption is not helpful for scheduling.
   Warning  FailedScheduling  10m (x8 over 45m)  default-scheduler  0/2 nodes are available: pod has unbound immediate PersistentVolumeClaims. preemption: 0/2 nodes are available: 2 Preemption is not helpful for scheduling.
+
+
+
+  user@k8smaster:~$ k describe pvc cluster-example-1
+Name:          cluster-example-1
+Namespace:     default
+StorageClass:  default
+Status:        Pending
+Volume:
+Labels:        app=cnetwork-metrics-database
+               cnpg.io/cluster=cluster-example
+               cnpg.io/instanceName=cluster-example-1
+               cnpg.io/pvcRole=PG_DATA
+Annotations:   cnpg.io/nodeSerial: 1
+               cnpg.io/operatorVersion: 1.25.1
+               cnpg.io/pvcStatus: initializing
+Finalizers:    [kubernetes.io/pvc-protection]
+Capacity:
+Access Modes:
+VolumeMode:    Filesystem
+Used By:       cluster-example-1-initdb-6p6rv
+Events:
+  Type     Reason              Age                   From                         Message
+  ----     ------              ----                  ----                         -------
+  Warning  ProvisioningFailed  11s (x22 over 5m26s)  persistentvolume-controller  storageclass.storage.k8s.io "default" not found

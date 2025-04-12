@@ -1,3 +1,4 @@
 resources:
   - ./cilium
   - ./cloudnativepg
+  - ./local-path

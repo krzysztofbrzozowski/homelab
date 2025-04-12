@@ -1,0 +1,114 @@
+kubectl describe pod   cluster-example-1-initdb-jrblz
+
+Name:             cluster-example-1-initdb-jrblz
+Namespace:        default
+Priority:         0
+Service Account:  cluster-example
+Node:             <none>
+Labels:           app=cnetwork-metrics-database
+                  batch.kubernetes.io/controller-uid=fa068059-9c2c-4699-86f7-77ded121da86
+                  batch.kubernetes.io/job-name=cluster-example-1-initdb
+                  cnpg.io/cluster=cluster-example
+                  cnpg.io/instanceName=cluster-example-1
+                  cnpg.io/jobRole=initdb
+                  controller-uid=fa068059-9c2c-4699-86f7-77ded121da86
+                  job-name=cluster-example-1-initdb
+Annotations:      cnpg.io/operatorVersion: 1.25.1
+Status:           Pending
+SeccompProfile:   RuntimeDefault
+IP:
+IPs:              <none>
+Controlled By:    Job/cluster-example-1-initdb
+Init Containers:
+  bootstrap-controller:
+    Image:           ghcr.io/cloudnative-pg/cloudnative-pg:1.25.1
+    Port:            <none>
+    Host Port:       <none>
+    SeccompProfile:  RuntimeDefault
+    Command:
+      /manager
+      bootstrap
+      /controller/manager
+      --log-level=info
+    Limits:
+      cpu:     1
+      memory:  3Gi
+    Requests:
+      cpu:        1
+      memory:     3Gi
+    Environment:  <none>
+    Mounts:
+      /controller from scratch-data (rw)
+      /dev/shm from shm (rw)
+      /run from scratch-data (rw)
+      /var/lib/postgresql/data from pgdata (rw)
+      /var/run/secrets/kubernetes.io/serviceaccount from kube-api-access-ncvsq (ro)
+Containers:
+  initdb:
+    Image:           ghcr.io/cloudnative-pg/postgresql:17.4
+    Port:            <none>
+    Host Port:       <none>
+    SeccompProfile:  RuntimeDefault
+    Command:
+      /controller/manager
+      instance
+      init
+      --initdb-flags
+      --encoding=UTF8 --lc-collate=C --lc-ctype=C
+      --app-db-name
+      app
+      --app-user
+      app
+      --log-level=info
+    Limits:
+      cpu:     1
+      memory:  3Gi
+    Requests:
+      cpu:     1
+      memory:  3Gi
+    Environment:
+      PGDATA:        /var/lib/postgresql/data/pgdata
+      POD_NAME:      cluster-example-1-initdb
+      NAMESPACE:     default
+      CLUSTER_NAME:  cluster-example
+      PSQL_HISTORY:  /controller/tmp/.psql_history
+      PGPORT:        5432
+      PGHOST:        /controller/run
+      TMPDIR:        /controller/tmp
+    Mounts:
+      /controller from scratch-data (rw)
+      /dev/shm from shm (rw)
+      /run from scratch-data (rw)
+      /var/lib/postgresql/data from pgdata (rw)
+      /var/run/secrets/kubernetes.io/serviceaccount from kube-api-access-ncvsq (ro)
+Conditions:
+  Type           Status
+  PodScheduled   False
+Volumes:
+  pgdata:
+    Type:       PersistentVolumeClaim (a reference to a PersistentVolumeClaim in the same namespace)
+    ClaimName:  cluster-example-1
+    ReadOnly:   false
+  scratch-data:
+    Type:       EmptyDir (a temporary directory that shares a pod's lifetime)
+    Medium:
+    SizeLimit:  <unset>
+  shm:
+    Type:       EmptyDir (a temporary directory that shares a pod's lifetime)
+    Medium:     Memory
+    SizeLimit:  <unset>
+  kube-api-access-ncvsq:
+    Type:                    Projected (a volume that contains injected data from multiple sources)
+    TokenExpirationSeconds:  3607
+    ConfigMapName:           kube-root-ca.crt
+    ConfigMapOptional:       <nil>
+    DownwardAPI:             true
+QoS Class:                   Guaranteed
+Node-Selectors:              <none>
+Tolerations:                 node.kubernetes.io/not-ready:NoExecute op=Exists for 300s
+                             node.kubernetes.io/unreachable:NoExecute op=Exists for 300s
+Events:
+  Type     Reason            Age                From               Message
+  ----     ------            ----               ----               -------
+  Warning  FailedScheduling  50m                default-scheduler  0/2 nodes are available: pod has unbound immediate PersistentVolumeClaims. preemption: 0/2 nodes are available: 2 Preemption is not helpful for scheduling.
+  Warning  FailedScheduling  10m (x8 over 45m)  default-scheduler  0/2 nodes are available: pod has unbound immediate PersistentVolumeClaims. preemption: 0/2 nodes are available: 2 Preemption is not helpful for scheduling.

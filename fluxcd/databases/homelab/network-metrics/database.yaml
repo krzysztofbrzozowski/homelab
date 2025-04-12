@@ -34,7 +34,6 @@ spec:
 
   
   storage:
-    storageClass: default
     size: 1Gi
 
   resources:

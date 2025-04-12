@@ -1,0 +1,36 @@
+.  [-] Scenario [check-log-errors/no-errors-in-logs]
+  [.] Action [check-log-errors/no-errors-in-logs/kubernetes/kube-system/cilium-envoy-tpm89 (cilium-envoy)]
+  ❌ Non-zero (1) restart count of kubernetes/kube-system/cilium-envoy-tpm89 (cilium-envoy) must be investigated
+  [.] Action [check-log-errors/no-errors-in-logs/kubernetes/kube-system/cilium-envoy-vgst4 (cilium-envoy)]
+  ❌ Non-zero (1) restart count of kubernetes/kube-system/cilium-envoy-vgst4 (cilium-envoy) must be investigated
+.  [.] Action [check-log-errors/no-errors-in-logs/kubernetes/kube-system/cilium-operator-778bbfd578-h6r7v (cilium-operator)]
+.  [.] Action [check-log-errors/no-errors-in-logs/kubernetes/kube-system/cilium-operator-778bbfd578-tcsnk (cilium-operator)]
+.  [.] Action [check-log-errors/no-errors-in-logs/kubernetes/kube-system/cilium-qgs6n (cilium-agent)]
+  ❌ Non-zero (1) restart count of kubernetes/kube-system/cilium-qgs6n (cilium-agent) must be investigated
+.  [.] Action [check-log-errors/no-errors-in-logs/kubernetes/kube-system/cilium-qgs6n (config)]
+  ❌ Non-zero (1) restart count of kubernetes/kube-system/cilium-qgs6n (config) must be investigated
+.  [.] Action [check-log-errors/no-errors-in-logs/kubernetes/kube-system/cilium-qgs6n (mount-cgroup)]
+.  [.] Action [check-log-errors/no-errors-in-logs/kubernetes/kube-system/cilium-qgs6n (apply-sysctl-overwrites)]
+.  [.] Action [check-log-errors/no-errors-in-logs/kubernetes/kube-system/cilium-qgs6n (mount-bpf-fs)]
+.  [.] Action [check-log-errors/no-errors-in-logs/kubernetes/kube-system/cilium-qgs6n (clean-cilium-state)]
+.  [.] Action [check-log-errors/no-errors-in-logs/kubernetes/kube-system/cilium-qgs6n (install-cni-binaries)]
+.  [.] Action [check-log-errors/no-errors-in-logs/kubernetes/kube-system/cilium-v57pt (mount-bpf-fs)]
+.  [.] Action [check-log-errors/no-errors-in-logs/kubernetes/kube-system/cilium-v57pt (clean-cilium-state)]
+.  [.] Action [check-log-errors/no-errors-in-logs/kubernetes/kube-system/cilium-v57pt (install-cni-binaries)]
+.  [.] Action [check-log-errors/no-errors-in-logs/kubernetes/kube-system/cilium-v57pt (cilium-agent)]
+  ❌ Non-zero (1) restart count of kubernetes/kube-system/cilium-v57pt (cilium-agent) must be investigated
+.  [.] Action [check-log-errors/no-errors-in-logs/kubernetes/kube-system/cilium-v57pt (config)]
+  ❌ Non-zero (1) restart count of kubernetes/kube-system/cilium-v57pt (config) must be investigated
+.  [.] Action [check-log-errors/no-errors-in-logs/kubernetes/kube-system/cilium-v57pt (mount-cgroup)]
+.  [.] Action [check-log-errors/no-errors-in-logs/kubernetes/kube-system/cilium-v57pt (apply-sysctl-overwrites)]
+.
+📋 Test Report [cilium-test-1]
+❌ 1/74 tests failed (6/300 actions), 41 tests skipped, 0 scenarios skipped:
+Test [check-log-errors]:
+  ❌ check-log-errors/no-errors-in-logs/kubernetes/kube-system/cilium-envoy-tpm89 (cilium-envoy)
+  ❌ check-log-errors/no-errors-in-logs/kubernetes/kube-system/cilium-envoy-vgst4 (cilium-envoy)
+  ❌ check-log-errors/no-errors-in-logs/kubernetes/kube-system/cilium-qgs6n (cilium-agent)
+  ❌ check-log-errors/no-errors-in-logs/kubernetes/kube-system/cilium-qgs6n (config)
+  ❌ check-log-errors/no-errors-in-logs/kubernetes/kube-system/cilium-v57pt (cilium-agent)
+  ❌ check-log-errors/no-errors-in-logs/kubernetes/kube-system/cilium-v57pt (config)
+[cilium-test-1] 1 tests failed

@@ -1,0 +1,11 @@
+ 25-04-12T11:44:14.380205368Z","logger":"cluster-resource","msg":"Defaulting for Cluster","version":"v1","name":"cluster-example","namespace":"databases"}                               │
+│ 25-04-12T11:44:14.390671629Z","logger":"cluster-resource","msg":"Validation for Cluster upon creation","version":"v1","name":"cluster-example","namespace":"databases"}                 │
+│ 25-04-12T11:44:14.411780516Z","logger":"cluster-resource","msg":"Defaulting for Cluster","version":"v1","name":"cluster-example","namespace":"databases"}                               │
+│ 25-04-12T11:44:14.417442528Z","logger":"cluster-resource","msg":"Validation for Cluster upon creation","version":"v1","name":"cluster-example","namespace":"databases"}                 │
+│ 25-04-12T11:44:14.444381497Z","msg":"no orphan PVCs found, skipping the restored cluster reconciliation","controller":"cluster","controllerGroup":"postgresql.cnpg.io","controllerKind" │
+│ 25-04-12T11:44:14.495066011Z","msg":"creating service","controller":"cluster","controllerGroup":"postgresql.cnpg.io","controllerKind":"Cluster","Cluster":{"name":"cluster-example","na │
+│ 25-04-12T11:44:14.544628817Z","msg":"creating service","controller":"cluster","controllerGroup":"postgresql.cnpg.io","controllerKind":"Cluster","Cluster":{"name":"cluster-example","na │
+│ 25-04-12T11:44:14.565897187Z","msg":"creating service","controller":"cluster","controllerGroup":"postgresql.cnpg.io","controllerKind":"Cluster","Cluster":{"name":"cluster-example","na │
+│ 25-04-12T11:44:14.960772647Z","msg":"Creating new Job","controller":"cluster","controllerGroup":"postgresql.cnpg.io","controllerKind":"Cluster","Cluster":{"name":"cluster-example","na │
+│ 25-04-12T11:45:12.729898707Z","logger":"cluster-resource","msg":"Defaulting for Cluster","version":"v1","name":"cluster-example","namespace":"databases"}                               │
+│ 25-04-12T11:45:12.743185686Z","logger":"cluster-resource","msg":"Validation for Cluster upon update","version":"v1","name":"cluster-example","namespace":"databases"}

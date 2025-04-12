@@ -4,7 +4,14 @@ metadata:
   name: cluster-example
   namespace: databases
 spec:
-  instances: 2
+  instances: 3
 
+  monitoring:
+    enablePodMonitor: true
+  
+  inheritedMetadata:
+    labels:
+      app: cnetwork-metrics-database
+  
   storage:
     size: 1Gi

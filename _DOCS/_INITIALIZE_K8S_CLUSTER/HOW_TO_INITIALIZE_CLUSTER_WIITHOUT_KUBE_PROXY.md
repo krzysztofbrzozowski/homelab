@@ -41,6 +41,11 @@ Add $USER to docker group
 sudo usermod -aG docker $USER
 ```
 
+Reboot system
+```
+sudo reboot
+```
+
 Test if docker running fine
 ```
 docker run hello-world
@@ -68,7 +73,11 @@ sudo containerd config default | sudo tee /etc/containerd/config.toml > /dev/nul
 cat /etc/containerd/config.toml
 ```
 
+
 Change "SystemdCgroup" to true
+```
+sudo nvim /etc/containerd/config.toml
+```
 ...
 ShimGroup = ""
 SystemdCgroup = true
@@ -90,9 +99,9 @@ sudo apt-get install -y kubelet kubeadm kubectl
 sudo apt-mark hold kubelet kubeadm kubectl
 ```
 
-### Init the cluster
+### Init the cluster (master node only)
 ```
-kubeadm init --skip-phases=addon/kube-proxy
+sudo kubeadm init --skip-phases=addon/kube-proxy
 ```
 
 Output:
@@ -160,8 +169,6 @@ k8smaster   NotReady   control-plane   15m   v1.32.3
 k8snode0    NotReady   <none>          39s   v1.32.3
 ```
 
-> [!TIP]
-> Probable here you can start running FluxCD
 
 ### Install Helm
 ```
@@ -186,6 +193,17 @@ helm install cilium cilium/cilium --version 1.17.2 \
     --set k8sServicePort=6443
 ```
 
+Install clilium cli
+```
+CILIUM_CLI_VERSION=$(curl -s https://raw.githubusercontent.com/cilium/cilium-cli/main/stable.txt)
+CLI_ARCH=amd64
+if [ "$(uname -m)" = "aarch64" ]; then CLI_ARCH=arm64; fi
+curl -L --fail --remote-name-all https://github.com/cilium/cilium-cli/releases/download/${CILIUM_CLI_VERSION}/cilium-linux-${CLI_ARCH}.tar.gz{,.sha256sum}
+sha256sum --check cilium-linux-${CLI_ARCH}.tar.gz.sha256sum
+sudo tar xzvfC cilium-linux-${CLI_ARCH}.tar.gz /usr/local/bin
+rm cilium-linux-${CLI_ARCH}.tar.gz{,.sha256sum}
+```
+
 ### Verify if it is ok
 ```
 kubectl -n kube-system exec ds/cilium -- cilium-dbg status | grep KubeProxyReplacement
@@ -196,4 +214,5 @@ Defaulted container "cilium-agent" out of: cilium-agent, config (init), mount-cg
 KubeProxyReplacement:    True   [enp0s31f6       192.168.1.51 2a02:a31d:80ed:450::3cf fd6d:4757:edfd::3cf fd6d:4757:edfd:0:ba85:84ff:feb0:5ab8 2a02:a31d:80ed:450:ba85:84ff:feb0:5ab8 fe80::ba85:84ff:feb0:5ab8 (Direct Routing)]
 ```
 
-Now go to fluxCD and reinitalize this repo
+> [!TIP]
+> Here you can start running FluxCD

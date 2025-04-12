@@ -34,4 +34,5 @@ spec:
 
   
   storage:
+    storageClass: standard
     size: 1Gi

@@ -5,29 +5,38 @@ data:
 kind: Secret
 metadata:
   name: app-secret
-  namespace: databases
 type: kubernetes.io/basic-auth
 ---
 apiVersion: postgresql.cnpg.io/v1
 kind: Cluster
 metadata:
-  name: network-metrics-database
+  name: cluster-example
   namespace: databases
 spec:
   instances: 3
 
+  monitoring:
+    enablePodMonitor: true
+  
+  inheritedMetadata:
+    labels:
+      app: cnetwork-metrics-database
+
+  superuserSecret:
+    name: superuser-secret
+
   bootstrap:
     initdb:
-      database: network-metrics
-      owner: network-metrics
+      database: networkmetrics
+      owner: networkmetrics
       # secret:
       #   name: network-metrics-database-creds
       secret:
         name: app-secret
 
+  
   storage:
     size: 1Gi
-
   # storage:
   #   pvcTemplate:
   #     accessModes:

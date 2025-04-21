@@ -25,6 +25,9 @@ spec:
       secret:
         name: app-secret
 
+  storage:
+    size: 1Gi
+
   # storage:
   #   pvcTemplate:
   #     accessModes:

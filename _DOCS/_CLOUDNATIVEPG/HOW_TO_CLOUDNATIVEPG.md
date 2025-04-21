@@ -87,3 +87,8 @@ Defaulted container "initdb" out of: initdb, bootstrap-controller (init)
 
 Error has been fixed and described in:
 https://krzysztofbrzozowski.com/post/cluster-stuck-on-init-msg-creating-new-job/
+
+run psql in cluster
+```
+k cnpg psql network-metrics-database -n databases
+```

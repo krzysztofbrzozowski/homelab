@@ -10,8 +10,8 @@ spec:
     initdb:
       database: network-metrics
       owner: network-metrics
-      secret:
-        name: network-metrics-database-creds
+      # secret:
+      #   name: network-metrics-database-creds
 
   storage:
     pvcTemplate:

@@ -8,8 +8,10 @@ spec:
 
   bootstrap:
     initdb:
-      database: app
-      owner: app
+      database: network-metrics
+      owner: network-metrics
+      secret:
+        name: network-metrics-database-creds
 
   storage:
     pvcTemplate:

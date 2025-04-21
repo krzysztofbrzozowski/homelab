@@ -25,11 +25,11 @@ spec:
       secret:
         name: app-secret
 
-  storage:
-    pvcTemplate:
-      accessModes:
-        - ReadWriteOnce
-      resources:
-        requests:
-          storage: 1Gi
-      volumeMode: Filesystem
+  # storage:
+  #   pvcTemplate:
+  #     accessModes:
+  #       - ReadWriteOnce
+  #     resources:
+  #       requests:
+  #         storage: 1Gi
+  #     volumeMode: Filesystem

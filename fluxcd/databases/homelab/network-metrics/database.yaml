@@ -18,22 +18,12 @@ spec:
   monitoring:
     enablePodMonitor: true
   
-  inheritedMetadata:
-    labels:
-      app: cnetwork-metrics-database
-
-  superuserSecret:
-    name: superuser-secret
-
   bootstrap:
     initdb:
-      database: networkmetrics
-      owner: networkmetrics
-      # secret:
-      #   name: network-metrics-database-creds
+      database: network-metrics
+      owner: network-metrics
       secret:
-        name: app-secret
-
+        name: network-metrics-database-creds
   
   storage:
     size: 1Gi

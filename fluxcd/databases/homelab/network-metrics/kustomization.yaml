@@ -3,5 +3,5 @@ kind: Kustomization
 namespace: databases
 resources:
   - namespace.yaml
-  # - secrets.yaml
+  - secrets.yaml
   - database.yaml

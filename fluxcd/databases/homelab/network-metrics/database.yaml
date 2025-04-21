@@ -6,6 +6,11 @@ metadata:
 spec:
   instances: 3
 
+  bootstrap:
+    initdb:
+      database: app
+      owner: app
+
   storage:
     pvcTemplate:
       accessModes:

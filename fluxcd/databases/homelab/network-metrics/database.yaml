@@ -1,7 +1,7 @@
 apiVersion: postgresql.cnpg.io/v1
 kind: Cluster
 metadata:
-  name: network-metrics-database-reinit
+  name: network-metrics-database
   namespace: databases
 spec:
   instances: 3
